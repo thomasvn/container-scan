@@ -1,0 +1,11 @@
+services:
+  web-dvwa:
+    image: vulnerables/web-dvwa
+    container_name: web-dvwa
+    ports:
+      - "8080:80"
+  php-ldap:
+    image: vulnerables/phpldapadmin-remote-dump
+    container_name: php-ldap
+    ports:
+      - "8081:80"
