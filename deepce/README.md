@@ -11,7 +11,6 @@ sudo docker-compose up -d
 
 
 ## Setup deepce
-Assuming you've gotten past the application and have dropped into the container's shell, time to set up the toolkit.
 ```/bin/bash
 # Let's assume that you've exploited the application and dropped into the container's shell
 sudo docker exec -it web-dvwa /bin/bash
