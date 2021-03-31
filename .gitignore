@@ -1,2 +1,4 @@
 .vagrant
 notes.txt
+results/
+.DS_Store
