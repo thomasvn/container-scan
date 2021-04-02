@@ -19,9 +19,21 @@
 
 
 ## Removing vulnerable libraries (RedHat)
+Safest method is to remove using `yum remove <package-name>`.
 
+Often times this may fail because
+```log
+Error: Trying to remove "systemd", which is protected
+Error: Trying to remove "yum", which is protected
+```
+
+In this case, there are important system packages that would be removed as a result as well because they are dependent.
+
+It is possible to remove the package using `rpm -e --nodeps <package-name>`, but this is dangerous because the `rpm` package manager will not resolve dependencies for you. Therefore removing one package will likely break many other packages.
 
 
 ## References
 - https://www.youtube.com/watch?v=bf3iKXMpr68
 - https://www.jfrog.com/confluence/display/JFROG/Xray+Reports#XrayReports-ViolationsReport
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-removing
+- https://access.redhat.com/solutions/3931691
