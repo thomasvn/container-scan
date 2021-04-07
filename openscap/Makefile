@@ -11,5 +11,8 @@ build: ## Build the container image
 run: ## Run the container
 	docker run -it -v $$(pwd):/home oscap bash
 
-rh: ## Debug the RedHat UBi container
+ib: ## Debug the RedHat UBI container
 	docker run -it --rm ib-ubi7:7.9
+
+rh: ## Debug the RedHat UBI container
+	docker run -it --rm registry.access.redhat.com/ubi7/ubi:7.9
